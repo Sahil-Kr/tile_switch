@@ -7,6 +7,7 @@ const Tile = ({ photo, handleClick, gameOn }) => {
   const [frontClasses, setFrontClasses] = useState(classes.Img);
   const [backClasses, setBackClasses] = useState(classes.Back);
   const [disabled, setDisabled] = useState(false);
+  const [flipped, setFlipped] = useState(false);
 
   const toggleClassName = (flipped) => {
     // console.log(flipped);
@@ -20,17 +21,24 @@ const Tile = ({ photo, handleClick, gameOn }) => {
   };
 
   const onTileClick = () => {
-    if (!gameOn) return;
+    if (!gameOn || flipped) return;
     toggleClassName();
     handleClick({
       slug: photo.slug,
       toggle: toggleClassName,
       disable: disableTile,
+      enable: enableTile,
     });
   };
 
   const disableTile = () => {
     setDisabled(true);
+    setFlipped(true);
+  };
+
+  const enableTile = () => {
+    setDisabled(false);
+    setFlipped(false);
   };
 
   useEffect(() => {

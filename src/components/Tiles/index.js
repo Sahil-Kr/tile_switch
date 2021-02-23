@@ -3,7 +3,7 @@ import classes from "./index.module.css";
 import Tile from "./Tile";
 import photos from "../../photos";
 
-const Tiles = ({ handleGameOn, gameOn }) => {
+const Tiles = ({ handleGameOn, gameOn, setGameWon }) => {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const [lastTile, setLastTile] = useState([]);
   const [score, setScore] = useState(0);
@@ -20,6 +20,8 @@ const Tiles = ({ handleGameOn, gameOn }) => {
       setTimeout(() => {
         tile1.toggle(true);
         tile2.toggle(true);
+        tile1.enable();
+        tile2.enable();
       }, 700);
 
       // console.log("Id not matched ");
@@ -30,9 +32,9 @@ const Tiles = ({ handleGameOn, gameOn }) => {
       if (s === 8) {
         console.log("finished");
         setTimeout(() => {
-          // selectedTiles.forEach((tile) => tile.toggle(true));
-          // tile2.toggle(true);
+          selectedTiles.forEach((tile) => tile.enable());
           handleGameOn();
+          setGameWon(true);
         }, 1000);
       }
       setScore(s);
