@@ -9,7 +9,8 @@ function App() {
   const [score, setScore] = useState("");
 
   const gameToggle = () => {
-    setGameOn((gameOn) => !gameOn);
+    if (gameWon) return;
+    setGameOn(!gameOn);
   };
 
   const time = (sec) => {
@@ -40,7 +41,7 @@ function App() {
           </div>
           <h1>Congratualtions!</h1>
           <p>Total time taken</p>
-          <p>{time(score)}</p>
+          <p>{time(score - 1)}</p>
         </div>
       ) : null}
     </div>

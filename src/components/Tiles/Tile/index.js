@@ -22,6 +22,7 @@ const Tile = ({ photo, handleClick, gameOn }) => {
 
   const onTileClick = () => {
     if (!gameOn || flipped) return;
+    setFlipped(true);
     toggleClassName();
     handleClick({
       slug: photo.slug,

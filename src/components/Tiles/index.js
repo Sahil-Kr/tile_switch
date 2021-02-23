@@ -35,6 +35,8 @@ const Tiles = ({ handleGameOn, gameOn, setGameWon }) => {
           selectedTiles.forEach((tile) => tile.enable());
           handleGameOn();
           setGameWon(true);
+          setSelectedTiles([]);
+          setScore(0);
         }, 1000);
       }
       setScore(s);
