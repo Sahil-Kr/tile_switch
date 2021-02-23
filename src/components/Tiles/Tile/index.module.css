@@ -1,0 +1,80 @@
+.Tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 150rem;
+  cursor: pointer;
+}
+
+.Tile:hover {
+  outline: 2px solid firebrick;
+  outline-offset: -10px;
+}
+
+/* @keyframes shake {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateZ(-7deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateZ(7deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+} */
+
+.Img {
+  background-color: antiquewhite;
+  /* border-radius: 50rem; */
+  backface-visibility: hidden;
+  transform: scale(3) rotateY(180deg);
+  transition: transform 0.3s ease-in;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.Back {
+  background-color: firebrick;
+  height: 6rem;
+  width: 6rem;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.3s ease-in;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+  color: antiquewhite;
+}
+
+/* .Tile:hover {
+  transform: scale(3) rotateY(180deg);
+} */
+
+.Clicked {
+  transform: scale(3) rotateY(0deg);
+}
+
+.ClickedBack {
+  transform: rotateY(-180deg);
+}
+
+/* .BackTile {
+  background-color: aquamarine;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50rem;
+} */
